@@ -17,4 +17,14 @@ const printHelp = () => {
         -h for get help`);
 };
 
-export { printError, printSuccess, printHelp };
+const printWeather = (response, icon) => {
+  console.log(dedent`
+    ${chalk.yellowBright("WEATHER")} ( of ${response.name} )
+    ${icon}  ${response.weather[0].description}
+    Tempereture: ${response.main.temp} ( feels like ${response.main.feels_like} )
+    Humidity: ${response.main.humidity}%
+    Wind speed: ${response.wind.speed}
+    `);
+};
+
+export { printError, printSuccess, printHelp, printWeather };
